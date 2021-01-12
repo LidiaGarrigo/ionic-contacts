@@ -1,0 +1,65 @@
+{"contacts": [ 
+  {
+    "id": 1,
+    "image":"https://randomuser.me/api/portraits/thumb/women/1.jpg",
+    "firstName": "Adeline",
+    "lastName": "Torres",
+    "email": "adeline.torres@example.tv",
+    "phone": "+1 (887) 512-3630",
+    "category": "Family"
+  },
+  {
+    "id": 2,
+    "image":"https://randomuser.me/api/portraits/thumb/men/1.jpg",
+    "firstName": "Emily",
+    "lastName": "Sellers",
+    "email": "emily.sellers@example.io",
+    "phone": "+1 (981) 551-3390",
+    "category": "Friend"
+  },
+  {
+    "id": 3,
+    "image":"https://randomuser.me/api/portraits/thumb/women/2.jpg",
+    "firstName": "Schwartz",
+    "lastName": "Burch",
+    "email": "schwartz.burch@example.us",
+    "phone": "+1 (990) 433-2436",
+    "category": "Family"
+  },
+  {
+    "id": 4,
+    "image":"https://randomuser.me/api/portraits/thumb/men/2.jpg",
+    "firstName": "Espinoza",
+    "lastName": "Mendoza",
+    "email": "espinoza.mendoza@example.net",
+    "phone": "+1 (896) 522-3636",
+    "category": "Family"
+  },
+  {
+    "id": 5,
+    "image":"https://randomuser.me/api/portraits/thumb/women/3.jpg",
+    "firstName": "Wade",
+    "lastName": "Carroll",
+    "email": "wade.carroll@example.biz",
+    "phone": "+1 (821) 445-2844",
+    "category": "Family"
+  },
+  {
+    "id": 6,
+    "image":"https://randomuser.me/api/portraits/thumb/men/4.jpg",
+    "firstName": "Conner",
+    "lastName": "Holt",
+    "email": "conner.holt@example.biz",
+    "phone": "+1 (901) 587-2356",
+    "category": "Friend"
+  },
+  {
+    "id": 7,
+    "image":"https://randomuser.me/api/portraits/thumb/men/19.jpg",
+    "firstName": "Barron",
+    "lastName": "Miller",
+    "email": "barron.miller@example.com",
+    "phone": "+1 (981) 467-3370",
+    "category": "Family"
+  }
+]}
