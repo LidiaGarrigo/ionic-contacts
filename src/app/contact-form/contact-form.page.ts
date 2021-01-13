@@ -19,8 +19,9 @@ export class ContactFormPage implements OnInit {
       this.myForm = this.formBuilder.group({
       firstname: ['', Validators.required ],
       lastname: ['', Validators.required ],
-      email: ['', Validators.required, Validators.email ],
+      email: ['', Validators.required ],
       phone: ['', Validators.required ],
+      category: ['', Validators.required ],
     });
   }
 
