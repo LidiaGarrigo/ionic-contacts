@@ -1,3 +1,4 @@
+import { FormularioService } from './../services/formulario.service';
 import { MyInterface } from './../my-interface';
 import { ContactService } from './../services/contact.service';
 import { Component, OnInit } from '@angular/core';
@@ -6,6 +7,7 @@ import { Observable } from 'rxjs';
 import { ContactFormPage } from '../contact-form/contact-form.page';
 import { ModalController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.page.html',
@@ -13,12 +15,27 @@ import { ModalController } from '@ionic/angular';
 })
 export class ContactListPage implements OnInit {
 
-  contacts: MyInterface[];
-  constructor(private apiService: ContactService, public modalController: ModalController) { }
+  contacts: MyInterface[] = [];
+
+  constructor(
+    private apiService: ContactService, 
+    public modalController: ModalController,
+    private formService: FormularioService) { }
 
   ngOnInit() {
-    this.apiService.getContacts().subscribe((datos) => {console.log(datos); this.contacts = datos});
+    
+    this.formService.readStorage().then((datos) => {
+      console.log(datos);
+      this.contacts = this.contacts.concat(datos);
+      console.log(this.contacts);
+    });
+    this.apiService.getContacts().subscribe((datos) => {
+      console.log(datos); 
+      this.contacts = this.contacts.concat(datos);
+    });
   }
+
+
   async openModal(){
     const modal = await this.modalController.create({
       component: ContactFormPage,
@@ -30,6 +47,8 @@ export class ContactListPage implements OnInit {
       }
     });
     await modal.present();
+    const { data } = await modal.onWillDismiss();
   }
-}
 
+
+}
