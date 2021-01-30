@@ -42,8 +42,10 @@ export class ContactFormPage implements OnInit {
     await this.modalController.dismiss({
       'form': this.myForm.value
     });
+    window.location.reload();
   }
   logForm(){
+    this.myForm.get('image').setValue(this.img);
     console.log(this.myForm.value);
     this.formService.writeStorage(this.myForm.value);
     this.closeModal();

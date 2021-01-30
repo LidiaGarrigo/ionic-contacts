@@ -2,10 +2,11 @@ import { FormularioService } from './../services/formulario.service';
 import { MyInterface } from './../my-interface';
 import { ContactService } from './../services/contact.service';
 import { Component, OnInit } from '@angular/core';
-import * as contacts from '../../assets/contacts.json';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { ContactFormPage } from '../contact-form/contact-form.page';
 import { ModalController } from '@ionic/angular';
+import { DomSanitizer } from '@angular/platform-browser';
+import { PhotoService } from '../services/photo.service';
 
 
 @Component({
@@ -16,24 +17,36 @@ import { ModalController } from '@ionic/angular';
 export class ContactListPage implements OnInit {
 
   contacts: MyInterface[] = [];
+  suscription: Subscription[];
+  img: any;
 
   constructor(
-    private apiService: ContactService, 
+    private apiService: ContactService,
     public modalController: ModalController,
-    private formService: FormularioService) { }
-
+    private formService: FormularioService,
+    private sanitizer: DomSanitizer,
+    public photoService: PhotoService,) {
+      this.suscription = [];
+    }
+    
+    /* contacts = this.apiService.getContacts(); */
+  
   ngOnInit() {
     
     this.formService.readStorage().then((datos) => {
-      console.log(datos);
       this.contacts = this.contacts.concat(datos);
       console.log(this.contacts);
     });
-    this.apiService.getContacts().subscribe((datos) => {
-      console.log(datos); 
-      this.contacts = this.contacts.concat(datos);
+    this.apiService.getContacts$().subscribe((datos: any) => {console.log(datos); 
+      this.contacts = this.contacts.concat(datos.contacts);
+      console.log(this.contacts);
     });
   }
+
+  /////////// FATLA SANITIZAR LA IMAGEN CUANDO SE AÑADE UN NUEVO CONTACTO EN LA LISTA /////////
+  
+    /* const imagen = await this.photoService.addNewToGallery();
+    this.img = this.sanitizer.bypassSecurityTrustResourceUrl(imagen.webviewPath); */
 
 
   async openModal(){

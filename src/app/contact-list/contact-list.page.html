@@ -6,17 +6,12 @@
         <ion-icon name="add" slot="icon-only" ></ion-icon>
       </ion-button>
     </ion-buttons>
-    
-
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen>
-  <ion-grid>
-    <ion-row>
-    <ion-col size-xl='4' size-lg='4' size-md='6' size-md='6' size='12'>
-  <ion-list *ngFor='let contact of contacts'>
-    <ion-item>
+<ion-content fullscreen> <!-- style="--padding-bottom: 8vh" -->
+  <ion-list >
+    <ion-item *ngFor='let contact of contacts'>
       <ion-avatar slot="start">
         <ion-img [src]='contact.image'></ion-img>
       </ion-avatar>
@@ -26,8 +21,5 @@
       </ion-label>
     </ion-item>
     </ion-list>
-    </ion-col>
-    </ion-row>
-  </ion-grid>
   </ion-content>
   
